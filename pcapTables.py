@@ -6,8 +6,8 @@ def analyze_pcap(file_path):
     packets = rdpcap(file_path)
     port_counts = {}
 
-    for packet in packets:
-        counted_ports = set()  # Set to track ports already counted in this packet
+    for packet in packets:  # Should be able to optimize this loop.
+        counted_ports = set()  # Set to track ports already counted in this packet.
         if packet.haslayer(TCP) or packet.haslayer(UDP):
             if packet.haslayer(TCP):
                 src_port = packet[TCP].sport
@@ -33,10 +33,9 @@ def analyze_pcap(file_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python script.py <path_to_pcap_file>")
+        print("Usage: python3 script.py <path_to_pcap_file>")
         sys.exit(1)
     if not sys.argv[1].endswith('.pcap'):
         print("Error: The file must be a '.pcap' file.")
         sys.exit(1)
     analyze_pcap(sys.argv[1])
-
