@@ -33,7 +33,7 @@ def analyze_pcap(file_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 script.py <path_to_pcap_file>")
+        print("Usage: python3 pcapTables.py <path_to_pcap_file>")
         sys.exit(1)
     if not sys.argv[1].endswith('.pcap'):
         print("Error: The file must be a '.pcap' file.")
