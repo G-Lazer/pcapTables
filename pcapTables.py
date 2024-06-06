@@ -6,8 +6,8 @@ def analyze_pcap(file_path):
     packets = rdpcap(file_path)
     port_counts = {}
 
-    for packet in packets:  # Should be able to optimize this loop.
-        counted_ports = set()  # Set to track ports already counted in this packet.
+    for packet in packets:    # Should be able to optimize this loop.
+        counted_ports = set()    # Set to track ports already counted in this packet.
         if packet.haslayer(TCP) or packet.haslayer(UDP):
             if packet.haslayer(TCP):
                 src_port = packet[TCP].sport
